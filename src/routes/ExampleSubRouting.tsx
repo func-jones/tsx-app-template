@@ -1,3 +1,1 @@
-const ExampleSubRouting = () => {};
-
-export { ExampleSubRouting };
+export const ExampleSubRouting = () => {};

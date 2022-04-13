@@ -1,16 +1,22 @@
-import { Routes, Route } from 'react-router-dom';
-
-interface RouteInfo {
+import { Route, Routes } from 'react-router-dom';
+export interface RouteInfo {
     path: string;
     Element: () => JSX.Element;
     name: string;
 }
 
-type RoutingProps = {
+export type RoutingProps = {
     routes: RouteInfo[];
 };
 
-const Routing = ({ routes }: RoutingProps) => {
+/**
+ * Easy route mapping for routes/pages.
+ *
+ * @param {RoutingProps} props:
+ *      {RouteInfo[]} routes -- the list of routes to map and populate within the Routing tree.
+ * @returns {JSX.Element} a tree of Routes to render.
+ */
+export const Routing = ({ routes }: RoutingProps): JSX.Element => {
     return (
         <Routes>
             {routes.map(({ path, Element }, idx) => (
@@ -19,6 +25,3 @@ const Routing = ({ routes }: RoutingProps) => {
         </Routes>
     );
 };
-
-export { Routing };
-export type { RoutingProps, RouteInfo };

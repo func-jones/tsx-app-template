@@ -1,17 +1,13 @@
 import { HomeMessage } from '../../components/HomeMessage';
-import { StoreProvider, useStore } from '../../context/StoreProvider';
-import {
-    homePageState,
-    homePageReducer,
-    changeBgColor,
-} from './homePageReducer';
+import { useStore } from '../../context/StoreProvider';
+import { changeBgColor } from './homePageReducer';
 import './HomePage.scss';
 
-const HomePage = () => {
-    const [{ backgroundColor }, dispatch] = useStore();
+export const HomePage = () => {
+    const [state, dispatch] = useStore();
 
     const handleClick = () => {
-        switch (backgroundColor) {
+        switch (state.backgroundColor) {
             case '#f0f0f0': {
                 dispatch(changeBgColor('#34eb40'));
                 break;
@@ -31,13 +27,18 @@ const HomePage = () => {
     };
 
     return (
-        <StoreProvider initialState={homePageState} reducer={homePageReducer}>
-            <div className="HomePage" style={{ backgroundColor }}>
-                <HomeMessage />
-                <button onClick={handleClick}>Change Color!</button>
-            </div>
-        </StoreProvider>
+        <div
+            className="HomePage"
+            style={{ backgroundColor: state.backgroundColor }}
+        >
+            <HomeMessage />
+            <br />
+            <button
+                style={{ marginTop: '15px', fontSize: '18px' }}
+                onClick={handleClick}
+            >
+                Change Color!
+            </button>
+        </div>
     );
 };
-
-export { HomePage };

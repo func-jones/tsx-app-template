@@ -1,13 +1,12 @@
 import { HomePage } from '../../pages/home/HomePage';
+import { RouteInfo } from './Routing';
 
-interface RootRoute {
-    path: string;
-    Element: () => JSX.Element;
-    name: string;
+interface RootRoute extends RouteInfo {
+    /**
+     * example interface extension if later routes require more customization
+     */
 }
 
-const rootRoutes: RootRoute[] = [
+export const rootRoutes: RootRoute[] = [
     { path: '/', Element: HomePage, name: 'Home' },
 ];
-
-export { rootRoutes };
