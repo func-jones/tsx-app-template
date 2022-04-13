@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+
 export interface RouteInfo {
     path: string;
     Element: () => JSX.Element;
