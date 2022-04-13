@@ -1,0 +1,3 @@
+const ExampleSubRouting = () => {};
+
+export { ExampleSubRouting };
