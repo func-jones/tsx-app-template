@@ -28,7 +28,6 @@ export const useStore = () => useContext(Store);
 /**
  * A wrapper component to easily create and provide context/state to any components passed as children.
  *
- *
  * @param {StoreProviderProps} props:
  *      {JSX.Element} children - the children components passed within the provider.
  *      {State} initialState - the initial state object provided to the store before the state is consumed.
